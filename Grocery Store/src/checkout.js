@@ -31,16 +31,12 @@ export default function FormValidation() {
       name: "STARTUP_PROJECTS",
       description: "for testing purpose",
       handler: function () {
-      
+            alert("Payment Successfull");
           alert("Visit Again");
         navigate("/home");
         
       },
-      prefill: {
-        name: "Anuj",
-        email: "anujguptaaj11@gmail.com",
-        contact: "7876578377",
-      },
+     
       notes: {
         address: "Razorpay Corporate Office",
       },

@@ -5,6 +5,10 @@ import {Link} from "react-router-dom";
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import Typewriter from 'typewriter-effect';
+import './first.css';
+import Footer from './footer';
+import Slider from './slider';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
    
@@ -21,11 +25,16 @@ const First=()=>{
 
     <Navbar bg="light">
       <Container>
-        <Navbar.Brand href="#">Amazing Grocery Store</Navbar.Brand>
+        <Navbar.Brand href="#"><b style={{fontSize:"30px",color:"black",fontWeight:"100px"}}>Amazing Grocery Store</b></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-          <div>
+          <div className="d-flex gap-3">
+          <a href="#contact"><button type="button" className="btn btn-info">
+   <Link  className="text-decoration-none text-dark" >
+          Contact us
+          </Link>
+        </button></a>
    <button type="button" className="btn btn-warning">
    <Link  className="text-decoration-none text-dark" onClick={() => loginWithRedirect()}>
             Login
@@ -40,13 +49,44 @@ const First=()=>{
         
        
       }
+     
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-
-
+    <br/>
+    <div>
+     <marquee> <h1 style={{color:"black",fontSize:"30px",color:"red",fontWeight:"70px"}}>Grab amazing offers <br/>Hurry Up!!!</h1></marquee>
+    </div>
+   
+    <div className="App rounded-pill" >
+      <Typewriter
+  
+       onInit={(typewriter)=> {
+  
+       typewriter
+        
+       .typeString("Welcome to")
+         
+       .pauseFor(1000)
+       .deleteAll()
+       .typeString("Amazing Grocery Store")
+       .start();
+       }}
+       />
+       <div style={{color:"yellow"}}>
+      <div>
+      Here you find the daily grocery items of your need 
+        So, What's looking for just login and buy items of your choice ... 
+      </div>
+       </div>
+    </div>
+    <br/><br/>
+    <Slider/>
+    <br/><br/>
+ <div id="contact">
+ <Footer/>
+ </div>
 
         </>
     );

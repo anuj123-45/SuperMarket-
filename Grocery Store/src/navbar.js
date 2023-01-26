@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './App.css';
 import {Link}  from 'react-router-dom';
-import React, {useState} from 'react';
+import React  from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import {
@@ -19,9 +19,13 @@ from "react-router-dom";
 
 const Nav = (props) => {
 
-  const { loginWithRedirect , logout, isAuthenticated , user} = useAuth0();
+  const {  logout, isAuthenticated , user,isLoading} = useAuth0();
 
   const navigate = useNavigate();
+  
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   return (
 <>
 
@@ -82,10 +86,12 @@ const Nav = (props) => {
       </div> 
 
       {
-        isAuthenticated && 
-          <><p className="mt-2" ><b>Hi , {user.name}</b></p></>
+        isAuthenticated && (
+          <> <input type="image" img src = {user.picture} alt="photo" style={{width:"40px",height:"40px"}}/>
+
+          <p className="mt-2" ><b>Hi , {user.name}</b></p></>
         
-       
+        )
       }
      
       {

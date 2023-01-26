@@ -1,0 +1,19 @@
+.App {
+    font-family: sans-serif;
+    font-weight:800;
+    font-size:40px;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:55vh;
+    background:white;
+    background:rgb(125, 69, 119);
+    
+
+  }
+  body{
+    background-color:rgb(137, 175, 10);
+    border-radius:25px;
+  }
+  
