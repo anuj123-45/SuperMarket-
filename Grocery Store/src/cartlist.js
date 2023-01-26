@@ -5,14 +5,14 @@ import './cart.css';
 import {Link}  from 'react-router-dom';
 
 
-
+let array=[];
 
 
 const CartList=({cart, setCart, handleChange})=>{
 
 
     const [price, setPrice] = useState(0);
-
+   
     const handleRemove = (id) => {
       const arr = cart.filter((item) => item.id !== id);
       setCart(arr);
@@ -56,6 +56,9 @@ const CartList=({cart, setCart, handleChange})=>{
   <Link to='/checkout'>  <button type="button" className='btn btn-success'>Checkout</button></Link>
   {
     localStorage.setItem("TotalCost",price)
+  }
+  {
+    localStorage.setItem("names",(JSON.stringify(cart)))
   }
         </div>
       </article>

@@ -55,6 +55,7 @@ const First=()=>{
       </Container>
     </Navbar>
     <br/>
+    <div className="sub">
     <div>
      <marquee> <h1 style={{color:"black",fontSize:"30px",color:"red",fontWeight:"70px"}}>Grab amazing offers <br/>Hurry Up!!!</h1></marquee>
     </div>
@@ -87,6 +88,7 @@ const First=()=>{
  <div id="contact">
  <Footer/>
  </div>
+    </div>
 
         </>
     );

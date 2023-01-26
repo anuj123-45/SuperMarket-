@@ -1,12 +1,8 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
+import { Form, TextArea } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import "./App.css";
-import {
-  Link,
-  useNavigate,
-} from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 export default function FormValidation() {
   const navigate = useNavigate();
@@ -20,32 +16,55 @@ export default function FormValidation() {
     var a = [];
     a.push(data);
     localStorage.setItem("Customer Details", JSON.stringify(a));
+    const { firstName, lastName, email, phone, address } = data;
+    console.log(firstName, lastName, email, phone, address);
+    fetch("http://localhost:5000/register", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body:JSON.stringify({
+        firstName:firstName,
+        lastName:lastName,
+        email:email,
+        phone:phone,
+        address:address,
+        purchased_items:localStorage.getItem('names'),
+        totalCost:localStorage.getItem('TotalCost'),
+      }),
+    }).then((res)=>res.json())
+    .then((d)=>{
+      
+      alert(d.message);
+      console.log(d.message);
+    })
 
-    alert("Data saved");
     // window.location.href="https://www.paypal.com/in/webapps/mpp/home?kid=p39982204948&gclid=Cj0KCQjwnbmaBhD-ARIsAGTPcfV2g2NmEHZP0_qLIozS6xvP5Xvat3u2dUjhlkvOPwUyHrzrisO9AVEaAkTSEALw_wcB&gclsrc=aw.ds";
-    var options = {
-      key: "rzp_test_Gx2PIk72JFokkA",
-      key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
-      amount: localStorage.getItem("TotalCost") * 100,
-      currency: "INR",
-      name: "STARTUP_PROJECTS",
-      description: "for testing purpose",
-      handler: function () {
-            alert("Payment Successfull");
-          alert("Visit Again");
-        navigate("/home");
-        
-      },
-     
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-    var pay = new window.Razorpay(options);
-    pay.open();
+  //   var options = {
+  //     key: "rzp_test_Gx2PIk72JFokkA",
+  //     key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
+  //     amount: localStorage.getItem("TotalCost") * 100,
+  //     currency: "INR",
+  //     name: "STARTUP_PROJECTS",
+  //     description: "for testing purpose",
+  //     handler: function () {
+  //       alert("Payment Successfull");
+  //       alert("Visit Again");
+  //       navigate("/home");
+  //     },
+
+  //     notes: {
+  //       address: "Razorpay Corporate Office",
+  //     },
+  //     theme: {
+  //       color: "#3399cc",
+  //     },
+  //   };
+  //   var pay = new window.Razorpay(options);
+  //   pay.open();
   }
   return (
     <>
@@ -139,6 +158,23 @@ export default function FormValidation() {
                   Please correct the phone number (up to 10 digits)
                 </p>
               )}
+              <Form.Field>
+                <label>Address</label>
+                &ensp; &ensp; &ensp;
+                <textarea
+                  placeholder="Address"
+                  {...register("address", {
+                    required: true,
+                  })}
+                  rows={4}
+                  cols={22}
+                />
+              </Form.Field>
+              {errors.address && (
+                <p style={{ color: "red", fontWeight: "bolder" }}>
+                  Fill the address
+                </p>
+              )}
               <br />
               <button className="btn btn-primary">Submit</button>
             </Form>
@@ -147,4 +183,4 @@ export default function FormValidation() {
       </div>
     </>
   );
-}
+              }
