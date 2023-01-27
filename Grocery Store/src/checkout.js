@@ -69,7 +69,7 @@ export default function FormValidation() {
     .then((d)=>{
       
       //alert(d.message)
-      console.log(d.message)
+      console.log(d)
     })
 
   
