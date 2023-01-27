@@ -19,7 +19,7 @@ export default function FormValidation() {
     localStorage.setItem("Customer Details", JSON.stringify(a));
     const { firstName, lastName, email, phone, address } = data;
     console.log(firstName, lastName, email, phone, address);
-    fetch("https://amazing-supermarket.netlify.app/register", {
+    fetch("http://localhost:5000/register", {
       method: "POST",
       crossDomain: true,
       headers: {
