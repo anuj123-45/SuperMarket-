@@ -30,7 +30,8 @@ const CartList=({cart, setCart, handleChange})=>{
     });
   
     return (
-      <article style={{border:'2px solid black', background:'grey'}}>
+     
+        <article style={{border:'2px solid black', background:'grey',width:'auto',padding:'2%'}}>
         {cart.map((item) => (
           <div className="cart_box" key={item.id}>
             <div className="cart_img">
@@ -63,6 +64,8 @@ const CartList=({cart, setCart, handleChange})=>{
         </div>
       </article>
 
+     
+  
     );
 }
 

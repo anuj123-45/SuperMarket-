@@ -58,25 +58,29 @@ const First=()=>{
     <div className="sub">
     <div>
      <marquee> <h1 style={{color:"black",fontSize:"30px",color:"red",fontWeight:"70px"}}>Grab amazing offers <br/>Hurry Up!!!</h1></marquee>
+    <br/>
+   <div style={{textAlign:"center",fontSize:"40px",fontWeight:"bolder"}}>
+   <Typewriter
+  
+  onInit={(typewriter)=> {
+
+  typewriter
+   
+  .typeString("Welcome to")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("Amazing Grocery Store")
+  .start();
+  }}
+  />
+   </div>
     </div>
    
     <div className="App rounded-pill" >
-      <Typewriter
-  
-       onInit={(typewriter)=> {
-  
-       typewriter
-        
-       .typeString("Welcome to")
-         
-       .pauseFor(1000)
-       .deleteAll()
-       .typeString("Amazing Grocery Store")
-       .start();
-       }}
-       />
+      
        <div style={{color:"yellow"}}>
-      <div>
+      <div style={{width:"50%",margin:"0 auto"}}>
       Here you find the daily grocery items of your need 
         So, What's looking for just login and buy items of your choice ... 
       </div>
