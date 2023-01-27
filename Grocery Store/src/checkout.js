@@ -1,11 +1,12 @@
 import React from "react";
-import { Form, TextArea } from "semantic-ui-react";
+import { Form} from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import "./App.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 export default function FormValidation() {
-  const navigate = useNavigate();
+
+  const navigate=useNavigate();
   const {
     register,
     handleSubmit,
@@ -35,36 +36,44 @@ export default function FormValidation() {
         purchased_items:localStorage.getItem('names'),
         totalCost:localStorage.getItem('TotalCost'),
       }),
-    }).then((res)=>res.json())
+    }).then((res)=>{
+      if(res.status===200){
+        alert("Data Saved");
+        var options = {
+          key: "rzp_test_Gx2PIk72JFokkA",
+          key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
+          amount: localStorage.getItem("TotalCost") * 100,
+          currency: "INR",
+          name: "STARTUP_PROJECTS",
+          description: "for testing purpose",
+          handler: function () {
+            alert("Payment Successfull");
+            alert("Visit Again");
+            navigate("/home");
+          },
+    
+          notes: {
+            address: "Razorpay Corporate Office",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+        var pay = new window.Razorpay(options);
+        pay.open();
+      }
+      else if(res.status===409){
+        alert("Email already exists");
+      }
+    })
     .then((d)=>{
       
-      alert(d.message);
-      console.log(d.message);
+      //alert(d.message)
+      console.log(d.message)
     })
 
-    // window.location.href="https://www.paypal.com/in/webapps/mpp/home?kid=p39982204948&gclid=Cj0KCQjwnbmaBhD-ARIsAGTPcfV2g2NmEHZP0_qLIozS6xvP5Xvat3u2dUjhlkvOPwUyHrzrisO9AVEaAkTSEALw_wcB&gclsrc=aw.ds";
-  //   var options = {
-  //     key: "rzp_test_Gx2PIk72JFokkA",
-  //     key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
-  //     amount: localStorage.getItem("TotalCost") * 100,
-  //     currency: "INR",
-  //     name: "STARTUP_PROJECTS",
-  //     description: "for testing purpose",
-  //     handler: function () {
-  //       alert("Payment Successfull");
-  //       alert("Visit Again");
-  //       navigate("/home");
-  //     },
-
-  //     notes: {
-  //       address: "Razorpay Corporate Office",
-  //     },
-  //     theme: {
-  //       color: "#3399cc",
-  //     },
-  //   };
-  //   var pay = new window.Razorpay(options);
-  //   pay.open();
+  
+    
   }
   return (
     <>

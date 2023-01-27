@@ -42,16 +42,16 @@ app.post("/register", async(req, res) => {
                 email: String(email),
                 phone: Number(phone),
                 address: String(address),
-                purchased_items: Array(purchased_items),
+                purchased_items: Array(JSON.parse(purchased_items)),
                 totalCost: Number(totalCost),
               
             };
             await usermodel.create(user);
 
-            return res.json({message:"Data Saved"});
+            return res.status(200).json({message:"Data Saved"});
         }
         else {
-          return res.json({message:"Email already exists"});
+          return res.status(409).json({message:"Email already exists"});
         }
     }
     catch(err){
