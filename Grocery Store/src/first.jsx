@@ -21,7 +21,7 @@ const First=()=>{
     const navigate = useNavigate();
     return(
    
-    <><nav className="nav bg-light  d-flex justify-content-around " >
+    <><nav className="nav bg-light  d-flex justify-content-around" >
     
 
           <div >
