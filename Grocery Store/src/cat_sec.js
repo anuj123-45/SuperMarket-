@@ -27,7 +27,7 @@ const Cat=()=>{
 
 const searchCat=(val)=>{
 Result=Products.filter((item)=>{
- return  item.title.toLowerCase().includes(val.toLowerCase());
+ return  item.category.toLowerCase().includes(val.toLowerCase());
    
 })
 setData(Result);

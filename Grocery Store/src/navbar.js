@@ -56,7 +56,7 @@ const Nav = (props) => {
           <input
             type="search"
             className="form-control rounded "
-            placeholder="Search"
+            placeholder="Search Category..."
             aria-label="Search"
             aria-describedby="search-addon"
             onKeyUp={(e)=>props.searchCat(e.target.value)}
@@ -87,9 +87,13 @@ const Nav = (props) => {
 
       {
         isAuthenticated && (
-          <> <input type="image" img src = {user.picture} alt="photo" style={{width:"40px",height:"40px"}}/>
+<>
+<p className="mt-2" ><b>Hi , {user.name}</b></p>
+<img src={user.picture} alt={user.name} style={{width:"40px",height:"40px"}}/>
+</>
+   
 
-          <p className="mt-2" ><b>Hi , {user.name}</b></p></>
+ 
         
         )
       }
