@@ -14,7 +14,7 @@ const Slide=()=>{
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://d1fv2cu4wmu6en.cloudfront.net/uploads/blog-media/2021-05-06/199/featured-199.jpg"
+            src="https://content3.jdmagicbox.com/comp/jaipur/l8/0141px141.x141.180316163542.i9l8/catalogue/seth-g-online-grocery-store-jhotwara-jaipur-online-shopping-websites-r97og.jpg?clr=006666"
             alt="Second slide" height="400"
           />
   
@@ -32,7 +32,7 @@ const Slide=()=>{
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://m.economictimes.com/thumb/msid-75668135,width-1200,height-900,resizemode-4,imgsize-172382/grocery-getty-f.jpg"
+            src="https://www.deliforce.io/assets/admin/base/images/blog/1407_614/82.jpg"
             alt="Fouth slide"  height="400"
           />
         </Carousel.Item>
@@ -43,6 +43,14 @@ const Slide=()=>{
             className="d-block w-100"
             src="https://www.poptin.com/blog/wp-content/uploads/2020/10/How-to-Set-Up-Your-Own-Online-Grocery-Store-1.png"
             alt="Fifth slide"  height="400"
+          />
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://www.shopurgrocery.com/wordpress/wp-content/uploads/2019/11/Launch-your-Online-Grocery-Store-Special-Script-Features-and-Upgrades.png"
+            alt="Sixth slide"  height="400"
           />
         </Carousel.Item>
 
