@@ -6,8 +6,10 @@ import Col from 'react-bootstrap/Col';
 
 const Hero=({filterResult})=>{
     return(
-        <div className="d-flex align-items-center" style={{border:'5px dotted green'}} >
-        <Container className='border border-3  ' style={{width:'300px',background:'#D5D5D5'}}> 
+        <Container >
+            <Row className="d-flex align-items-center gx-10" >
+            <Col sm={12} lg={3} className="p-3">
+        <Container  className='border border-3  ' style={{width:'200px',background:'#D5D5D5'}}> 
         
             <Row><Col><h3>Category</h3></Col></Row>
         <Row >
@@ -98,9 +100,16 @@ const Hero=({filterResult})=>{
         </div></Col>
             </Row>
         
+            </Container>  
+            </Col>
+
+
+            <Col lg={9}>
+            <Slide/>  
+            </Col>
+        
+        </Row>     
         </Container>  
-        <Slide/>       
-        </div>
     );
 }
 
