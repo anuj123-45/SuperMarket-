@@ -13,8 +13,9 @@ const Pr = ({ arr ,addToCart}) => {
         <div
           l={4}
           className="d-inline-block card col-card"
-          style={{ width: "16rem", margin: "10px" }}
+          style={{ width: "16rem", margin: "10px" ,height:"72vh"}}
           key={value.id}
+         
         >
           <div className="card h-200" style={{ height: "70vh" }}>
             <img

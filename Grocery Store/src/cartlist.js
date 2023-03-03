@@ -31,7 +31,7 @@ const CartList=({cart, setCart, handleChange})=>{
   
     return (
      
-        <article style={{border:'2px solid black', background:'grey',width:'auto',padding:'2%'}}>
+        <article style={{border:'5px solid black', background:'lightgreen', width:'auto',padding:'2%',borderRadius:'10px'}}>
         {cart.map((item) => (
           <div className="cart_box" key={item.id}>
             <div className="cart_img">
@@ -50,7 +50,7 @@ const CartList=({cart, setCart, handleChange})=>{
           </div>
         ))}
         <div className="total">
-          <span>Total Price of your Cart</span>
+          <span style={{color:"black"}}>Total Price of your Cart</span>
           <span>Rs - {price}</span>
         </div>
         <div className='d-flex justify-content-center'>
