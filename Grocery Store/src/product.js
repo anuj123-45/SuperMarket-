@@ -7,17 +7,17 @@ const Pr = ({ arr ,addToCart}) => {
  
   return(
 <Container style={{marginTop:'20px'}} id="f">
-<Row style={{justifyContent:'center',border:'5px dashed red',textAlign:'center',color:'black'}} className="rotating-border rotating-border--google">
+<Row style={{justifyContent:'center',textAlign:'center',color:'black'}} className="rotating-border rotating-border--google">
     {arr.map((value) => {
       return (
         <div
           l={4}
           className="d-inline-block card col-card"
-          style={{ width: "16rem", margin: "10px" ,height:"72vh"}}
+          style={{ width: "16rem", margin: "10px" ,height:"auto"}}
           key={value.id}
          
         >
-          <div className="card h-200" style={{ height: "70vh" }}>
+          <div className="card h-200" style={{ height: "auto" }}>
             <img
               className="card-img-top position-relative"
               src={value.image}
@@ -46,6 +46,7 @@ const Pr = ({ arr ,addToCart}) => {
                 </span>
               </p>
             </div>
+          
             <button
               type="button"
               className="btn btn-outline-warning fw-bold"

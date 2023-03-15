@@ -152,7 +152,7 @@ const Products=[
   {
   "id":13,
   "title": "Arbi (Colocasia) Leaves",
-  "description":"Arbi (Colocasia) Leaves 1 bunch (Approx 50 g - 150 g)",
+  "description":"Arbi (Colocasia) Leaves 1 bunch (Approx 50 g-150 g)",
   "price":10,
   "image":"https://www.jiomart.com/images/product/600x600/590000721/arbi-colocasia-leaves-1-bunch-approx-50-g-150-g-product-images-o590000721-p590000721-0-202203151517.jpg",
   "category":"Vegetables",
@@ -597,7 +597,7 @@ const Products=[
   {
     "id":43,
     "title": "Chocolate Milk Shake",
-    "description":"Britannia Winkin'Cow Chocolate Milkshake 200 ml",
+    "description":"Britannia Winkin'Cow Chocolate Milkshake 200ml",
     "price":26,
     "image":"https://www.jiomart.com/images/product/600x600/491491631/britannia-winkin-cow-chocolate-milkshake-200-ml-tetra-pak-product-images-o491491631-p491491631-0-202203170216.jpg",
     "MRP":"Rs 40",

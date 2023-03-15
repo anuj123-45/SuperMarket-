@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Ren from './render';
 import CartList from './cartlist';
 import Cat from './cat_sec';
 import Payment from './payment';

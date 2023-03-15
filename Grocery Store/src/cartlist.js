@@ -5,9 +5,6 @@ import './cart.css';
 import {Link}  from 'react-router-dom';
 
 
-let array=[];
-
-
 const CartList=({cart, setCart, handleChange})=>{
 
 

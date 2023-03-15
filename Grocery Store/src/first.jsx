@@ -3,8 +3,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import {Link} from "react-router-dom";
 import './App.css';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import Typewriter from 'typewriter-effect';
 import './first.css';
 import Footer from './footer';
