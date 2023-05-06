@@ -2,8 +2,8 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import "./App.css";
-import { Link, useNavigate } from "react-router-dom";
-import { Auth0Context } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
+
 import Footer from './footer';
 
 export default function FormValidation() {
@@ -37,8 +37,7 @@ export default function FormValidation() {
         purchased_items: localStorage.getItem("names"),
         totalCost: localStorage.getItem("TotalCost"),
       }),
-    })
-      .then((res) => {
+    }) .then((res) => {
         if (res.status === 200) {
           alert("Data Saved");
           var options = {
