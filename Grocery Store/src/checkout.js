@@ -1,12 +1,13 @@
 import React from "react";
-import { Form} from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import "./App.css";
-import { Link ,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Auth0Context } from "@auth0/auth0-react";
+import Footer from './footer';
 
 export default function FormValidation() {
-
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -27,78 +28,86 @@ export default function FormValidation() {
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      body:JSON.stringify({
-        firstName:firstName,
-        lastName:lastName,
-        email:email,
-        phone:phone,
-        address:address,
-        purchased_items:localStorage.getItem('names'),
-        totalCost:localStorage.getItem('TotalCost'),
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        address: address,
+        purchased_items: localStorage.getItem("names"),
+        totalCost: localStorage.getItem("TotalCost"),
       }),
-    }).then((res)=>{
-      if(res.status===200){
-        alert("Data Saved");
-        var options = {
-          key: "rzp_test_Gx2PIk72JFokkA",
-          key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
-          amount: localStorage.getItem("TotalCost") * 100,
-          currency: "INR",
-          name: "STARTUP_PROJECTS",
-          description: "for testing purpose",
-          handler: function () {
-            alert("Payment Successfull");
-            alert("Visit Again");
-            navigate("/home");
-          },
-    
-          notes: {
-            address: "Razorpay Corporate Office",
-          },
-          theme: {
-            color: "#3399cc",
-          },
-        };
-        var pay = new window.Razorpay(options);
-        pay.open();
-      }
-      else if(res.status===409){
-        alert("Email already exists");
-      }
     })
-    .then((d)=>{
-      
-      //alert(d.message)
-      console.log(d)
-    })
-
-  
-    
+      .then((res) => {
+        if (res.status === 200) {
+          alert("Data Saved");
+          var options = {
+            key: "rzp_test_Gx2PIk72JFokkA",
+            key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
+            amount: localStorage.getItem("TotalCost") * 100,
+            currency: "INR",
+            name: "STARTUP_PROJECTS",
+            description: "for testing purpose",
+          
+            handler: function () {
+              alert("Payment Successfull");
+              alert("Visit Again");
+              navigate("/home");
+            },
+            prefill: {
+              name: firstName + " " + lastName,
+              email: "ak@gmail.com",
+              contact: data.phone,
+            },
+            notes: {
+              address: "Razorpay Corporate Office",
+            },
+            theme: {
+              color: "#3399cc",
+            },
+          };
+          var pay = new window.Razorpay(options);
+          pay.open();
+        } else if (res.status === 409) {
+          alert("Email already exists");
+        }
+      })
+      .then((d) => {
+        //alert(d.message)
+        console.log(d);
+      });
   }
   return (
     <>
+
       <div className="checkout">
-        <h1
+        <table border="3" style={{boxShadow:'5px 10px 8px 10px white'}}>
+          <tr>
+            <td>
+            <h1
           style={{ textAlign: "left", fontWeight: "bolder", color: "black" }}
           id="f"
         >
-          Checkout
+         <u> Checkout</u>
         </h1>
         <h1 style={{ textAlign: "left", fontWeight: "bolder", color: "black" }}>
-          Total Cost of items : Rs {localStorage.getItem("TotalCost")}
+          <i>Total Cost </i> :<span style={{color:'darkgreen'}}> Rs {localStorage.getItem("TotalCost")}</span>
         </h1>
-        <Link to="/gotohome">
-          <button type="button" className="btn btn-warning">
-            Home
-          </button>
-        </Link>
+     
+            </td>
+          </tr>
+        </table>
         <div className="d-flex justify-content-center">
           <div
             style={{
               border: "2px solid black",
               textAlign: "center",
-              width: "300px",
-              marginTop: "50px",
+            width:"350px",
+            
+              margin:"auto",
+              marginTop: "40px",
+              boxShadow:' 5px 10px 8px 10px yellow',
+              
             }}
           >
             <h1 style={{ color: "black", fontWeight: "bolder" }}>
@@ -189,7 +198,8 @@ export default function FormValidation() {
             </Form>
           </div>
         </div>
+        <Footer/>
       </div>
     </>
   );
-              }
+}

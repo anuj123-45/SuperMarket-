@@ -14,7 +14,6 @@ export default function App() {
 <Routes>
 <Route  exact path='/' element={<First/>}/>
 <Route  exact path='/home' element={<Cat/>}/>
-<Route  exact path='/gotohome' element={<Cat/>}/>
 
 <Route  path='/mainpage/home' element={<Cat/>}/>
 

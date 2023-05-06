@@ -34,19 +34,13 @@ const Nav = (props) => {
      <Row> 
      <Col lg={4}  className="d-flex justify-content-between">
       
-     <div>
-   <button type="button" className="btn btn-primary">
-   <a href='/gotohome' className="text-decoration-none text-dark">
-            Home
-          </a>
-        </button>
-   </div>
-      <div>
+     
+   <div>
       
      
- <a href="#" style={{textDecoration:'none'}} id="main-head" onClick={()=>props.handleShow(false)}><h3>Online Groceries Store</h3></a>
-
-      </div>
+      <Link to="/home" style={{textDecoration:'none'}} id="main-head" onClick={()=>props.handleShow(false)}><h3>Online Groceries Store</h3></Link>
+     
+           </div>
 
 
       </Col>
@@ -88,10 +82,9 @@ const Nav = (props) => {
       {
         isAuthenticated && (
 <>
-<p className="mt-2" ><b>Hi , {user.name}</b></p>
+<p className="mt-2" ><b>Hi ,<span style={{color:'red'}}> <b>{user.name}</b></span></b></p>
 <img src={user.picture} alt={user.name} style={{width:"40px",height:"40px"}}/>
 </>
-   
 
  
         
@@ -99,8 +92,8 @@ const Nav = (props) => {
       }
      
       {
-        isAuthenticated ?       <div>
-        <button type="button" className="btn btn-danger">
+        isAuthenticated ?       <div >
+        <button type="button" className="btn btn-danger ">
            <Link  className="text-decoration-none text-dark" onClick={() => logout({ returnTo: window.location.origin })}>
              Logout
            </Link>
